@@ -1,14 +1,14 @@
 ﻿country_decisions = {
 	#Modded Molon Labe		
-	# Form Saxonia
-	form_saxonia = {
+	# Form Liguria
+	# Created by Shinymewtwo99
+	form_liguria = {
 		
 		potential = {
 			num_of_cities >= 1
-			primary_culture = saxonian
-			is_tribal = yes
+			primary_culture = ligurian
 			NOT = {
-				tag = XXS
+				tag = LIG
 			}
 			OR = {
 				is_ai = no
@@ -24,42 +24,34 @@
 		highlight = {
 			scope:province = {
 				OR = {
-					province_id = 3888
-					province_id = 3889
-					province_id = 3890
-					province_id = 3855
-					province_id = 3837
-					province_id = 3839
-					province_id = 3836
-					province_id = 3863
+					is_in_area = liguria_area
+					province_id = 3548
+					province_id = 3543
+					province_id = 3541
 				}
 			}
 		}
 		
 		allow = {
 			custom_tooltip = {
-				text = formable_not_saxonia_exists
+				text = formable_not_liguria_exists
 				NOT = {
 					any_country = {
 						num_of_cities >= 1
-						tag = XXS
+						tag = LIG
 					}
 				}
 			}
 			can_form_nation_trigger = yes
-			owns = 3888
-			owns = 3889
-			owns = 3890
-			owns = 3855
-			owns = 3837
-			owns = 3839
-			owns = 3836
-			owns = 3863
+			owns_or_subject_owns_area = liguria_area
+			owns_or_subject_owns = 3548
+			owns_or_subject_owns = 3543
+			owns_or_subject_owns = 3541
 		}
 		
 		effect = {
 			custom_tooltip = "tier_1_formable_tooltip"
-			change_country_name = "SAXONIA_NAME"
+			change_country_name = "LIGURIA_NAME"
 			if = {
 				limit = { is_tribal = yes }
 				add_country_modifier = {
@@ -70,27 +62,18 @@
 				switch_government_type_event_clearup_effect = yes
 			}		
 			hidden_effect = {
-				change_country_adjective = "SAXONIA_ADJECTIVE"
-				change_country_color =  "saxonia_color"
-				change_country_tag = XXS
+				change_country_adjective = "LIGURIA_ADJECTIVE"
+				change_country_color =  "liguria_color"
+				change_country_tag = LIG
+				change_country_flag = LIGURIA_FLAG
 				trigger_event = {
-					id = formable_heritage.75
+					id = formable_heritage.144
 				}					
 			}
 			capital_scope = {
 				establish_city_effect = yes
 				capital_formable_tribal_effect = yes
 				formable_capital_modifier_tribal_effect = yes
-			}
-			area:chaucia_area = {
-				every_area_province = {
-					limit = {
-						NOT = {
-							owner = root
-						}
-					}
-					add_claim = root
-				}
 			}
 			add_2_free_province_investments = yes
 		}
